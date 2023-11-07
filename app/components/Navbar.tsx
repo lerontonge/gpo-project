@@ -4,8 +4,9 @@ import Link from 'next/link';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className=''>
-      <ul className='flex flex-row top-0'>
+    <nav className='flex justify-between'>
+      <h3>GPO</h3>
+      <ul className='flex flex-row top-0 justify-end'>
         <li>
           <Link href="/">
         Home

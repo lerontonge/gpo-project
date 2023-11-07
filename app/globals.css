@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -15,7 +15,7 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
 
@@ -29,9 +29,35 @@ body {
 }
 
 *{
-  outline:dotted 1px white;
+  outline:dotted 1px black;
 }
 
 h1{
   text-align: center;
+}
+
+
+
+
+main{
+  background-color: deepskyblue;
+}
+
+.content-container{
+  background-color: coral;
+  max-height: fit-content;
+}
+
+
+.card-container{
+  max-height: fit-content;
+}
+
+.card{
+  height: auto;
+}
+
+.card-container:hover{
+  background-color: darkorchid;
+
 }
