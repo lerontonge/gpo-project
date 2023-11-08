@@ -38,26 +38,3 @@ h1{
 
 
 
-
-main{
-  background-color: deepskyblue;
-}
-
-.content-container{
-  background-color: coral;
-  max-height: fit-content;
-}
-
-
-.card-container{
-  max-height: fit-content;
-}
-
-.card{
-  height: auto;
-}
-
-.card-container:hover{
-  background-color: darkorchid;
-
-}
