@@ -1,0 +1,387 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Service",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/ItemTT/{itemID}": {
+      "get": {
+        "summary": "Track item by item ID (anonymous access)",
+        "description": "",
+        "operationId": "ItemTT",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "itemID",
+            "description": "Item ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "List of item details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemTTOutput"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ItemTTExt/{itemID}/{token}": {
+      "get": {
+        "summary": "Track item by item ID (token-based access)",
+        "description": "",
+        "operationId": "ItemTTExt",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "itemID",
+            "description": "Item ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "token",
+            "description": "Access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "List of item details with event codes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemTTExtOutput"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ItemTTWithTrans/{itemID}/{langCd}": {
+      "get": {
+        "summary": "Track item by item ID and language (anonymous access)",
+        "description": "",
+        "operationId": "ItemTTWithTrans",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "itemID",
+            "description": "Item ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "langCd",
+            "description": "Language code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "List of item details with localized event names",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemTTWithTransOutput"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ItemTTWithTransExt/{itemID}/{langCd}/{token}": {
+      "get": {
+        "summary": "Track item by item ID and language (token-based access)",
+        "description": "",
+        "operationId": "ItemTTWithTransExt",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "itemID",
+            "description": "Item ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "langCd",
+            "description": "Language code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "token",
+            "description": "Access token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "List of item details with localized event names",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemTTWithTransExtOutput"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ListTT": {
+      "post": {
+        "summary": "Track a list of item IDs (anonymous)",
+        "description": "",
+        "operationId": "ListTT",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListTTInput"
+              }
+            }
+          },
+          "description": "List of item IDs",
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "List of item details with event codes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTTOutput"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ListTTExt": {
+      "post": {
+        "summary": "Track a list of item IDs (token-based access)",
+        "description": "",
+        "operationId": "ListTTExt",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListTTExtInput"
+              }
+            }
+          },
+          "description": "List of item IDs and access token",
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "List of item details with event codes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTTExtOutput"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://globaltracktrace.ptc.post/gtt.api/service.svc/rest"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "ItemTTOutput": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/APIItem_type_q1"
+        },
+        "nullable": true
+      },
+      "ItemTTExtOutput": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/APIItem_type_q1"
+        },
+        "nullable": true
+      },
+      "ItemTTWithTransOutput": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/APIItem_type_q1"
+        },
+        "nullable": true
+      },
+      "ItemTTWithTransExtOutput": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/APIItem_type_q1"
+        },
+        "nullable": true
+      },
+      "ListTTInput": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "nullable": true
+      },
+      "ListTTOutput": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/APIItem_type_q1"
+        },
+        "nullable": true
+      },
+      "ListTTExtInput": {
+        "type": "object",
+        "properties": {
+          "ItemIDs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "Token": {
+            "type": "string"
+          }
+        }
+      },
+      "ListTTExtOutput": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/APIItem_type_q1"
+        },
+        "nullable": true
+      },
+      "APIItem_type_q1": {
+        "type": "object",
+        "properties": {
+          "DestinationCountryCd": {
+            "type": "string",
+            "nullable": true
+          },
+          "DestinationCountryNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "Events": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/APIItemEvent_type_q1"
+            },
+            "nullable": true
+          },
+          "ID": {
+            "type": "string",
+            "nullable": true
+          },
+          "MailClassCd": {
+            "type": "string",
+            "nullable": true
+          },
+          "OriginCountryCd": {
+            "type": "string",
+            "nullable": true
+          },
+          "OriginCountryNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "State": {
+            "$ref": "#/components/schemas/APIItemState_type_q1"
+          }
+        }
+      },
+      "APIItemState_type_q1": {
+        "type": "string",
+        "enum": [
+          "Posted",
+          "OnRoute",
+          "Canceled",
+          "Delivered"
+        ]
+      },
+      "APIItemEvent_type_q1": {
+        "type": "object",
+        "properties": {
+          "EventCd": {
+            "type": "string",
+            "nullable": true
+          },
+          "EventDT": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "EventLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "EventNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "NonDeliveryMeasureCd": {
+            "type": "string",
+            "nullable": true
+          },
+          "NonDeliveryMeasureNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "NonDeliveryReasonCd": {
+            "type": "string",
+            "nullable": true
+          },
+          "NonDeliveryReasonNm": {
+            "type": "string",
+            "nullable": true
+          },
+          "Signature": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}
