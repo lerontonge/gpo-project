@@ -41,7 +41,7 @@ export default function Tracking() {
             <button className="btn shadow-md " onClick={handleTrackClick}>Track</button>
           </label>
           {showState && (
-            <h1 className='tracking-results-state'>State: {data.State}</h1>
+            <h1 className='tracking-results-state'>State: {data}</h1>
           )}
         </div>
       </div>
