@@ -15,9 +15,13 @@ export default function Tracking() {
     setData(json);
   };
 
-  useEffect(() => {
+  const [showState, setShowState] = useState(false);
+
+  const handleTrackClick = () => {
     fetchData();
-  }, []); 
+    setShowState(true);
+  };
+
   return (
 
     <>
@@ -34,10 +38,13 @@ export default function Tracking() {
           />
           <label className='flex justify-end'>
             
-            <button className="btn shadow-md ">Track</button>
+            <button className="btn shadow-md " onClick={handleTrackClick}>Track</button>
           </label>
+          {showState && (
+            <h1 className='tracking-results-state'>State: {data.State}</h1>
+          )}
         </div>
-      </div>{' '}
+      </div>
     </>
   );
 };
