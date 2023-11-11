@@ -8,14 +8,11 @@ export default async function Home() {
   const organization = JSON.parse(file);
 
   return (
-    <main className=''>
-      <div
-        className='hero min-h-screen'
-        style={{
-          backgroundImage:
-            'url(https://i.ibb.co/5RSgRFM/POST-OFFICE-e1696429842123.jpg)',
-        }}
-      >
+    <main className='hero min-h-screen' style={{
+      backgroundImage:
+        'url(https://i.ibb.co/5RSgRFM/POST-OFFICE-e1696429842123.jpg)',
+    }}>
+      
         <div className='hero-overlay bg-opacity-60'></div>
         <div className='hero-content text-center text-neutral-content'>
           <div className='max-w-md'>
@@ -28,7 +25,7 @@ export default async function Home() {
            <Link href='news'> <button className='btn btn-primary'>Welcome</button></Link>
           </div>
         </div>
-      </div>
+     
     </main>
   );
 }
